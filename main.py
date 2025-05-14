@@ -1,6 +1,8 @@
-from pygase import Server, GameStateStore
 import time
 import logging
+import os
+from pygase import Server, GameStateStore
+
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -89,9 +91,10 @@ class GameServer(Server):
 
 if __name__ == '__main__':
     server = GameServer()
+    port  = int(os.environ.get(("PORT", 12345)))
     try:
         print("Запускаем сервер на порту 12345")
-        server.run(hostname='localhost', port=12345)
+        server.run(hostname='0.0.0.0', port=port)
     except AttributeError:
         print("Запускаем сервер в ручном цикле")
         while True:
