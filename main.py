@@ -91,7 +91,7 @@ class GameServer(Server):
 
 if __name__ == '__main__':
     server = GameServer()
-    port  = int(os.environ.get(("PORT", 12345)))
+    port  = int(os.environ.get("PORT", 12345))
     try:
         print("Запускаем сервер на порту 12345")
         server.run(hostname='0.0.0.0', port=port)
